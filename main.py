@@ -1,3 +1,17 @@
+def average_rating(some_lecturer1):
+    rating = []
+    aver = some_lecturer1.grades
+    rating = aver.values()
+    average_rating_final = 0
+    summ = 0
+    qun = 0
+    for i in rating:
+        for b in i:
+            summ += b
+            qun += 1
+    average_rating_final = summ/qun
+    return average_rating_final       
+
 class Student:
     def __init__(self, name, surname, gender):
         self.name = name
@@ -14,7 +28,13 @@ class Student:
             else:
                 lecturer.grades[course] = [grade]
         else:
-            return 'Ошибка'
+          return 'Ошибка'
+        
+    def __str__ (self):
+        courses_in_progress1 = ', '.join(self.courses_in_progress)
+        finished_courses1 = ', '.join(self.finished_courses)
+        res = f'Имя:{self.name}\nФамилия:{self.surname}\nСредняя оценка за домашние задания:{average_rating(self)}\nКурсы в процессе изучения:{courses_in_progress1}\nЗавершенные курсы:{finished_courses1}'    
+        return res 
         
 class Mentor:
     def __init__(self, name, surname, prof):
@@ -35,29 +55,39 @@ class Reviewer(Mentor):
                 student.grades[course] = [grade]
         else:
             return 'Ошибка'
+        
+    def __str__(self):
+        res = f'Имя:{self.name}\nФамилия:{self.surname}' 
+        return res   
  
 class Lecturer(Mentor):
     def __init__(self, name, surname, prof):
         super().__init__(name, surname, prof)
         self.grades = {}
- 
-best_student = Student('Ruoy', 'Eman', 'your_gender')
-best_student.courses_in_progress += ['Python']
- 
-cool_mentor = Reviewer('Some', 'Buddy', 'Reviewer')
-cool_mentor.courses_attached += ['Python']
- 
-cool_mentor1 = Lecturer('Some1', 'Buddy1', 'Lecturer')
-cool_mentor1.courses_attached += ['Python']
-
-cool_mentor.rate_hw(best_student, 'Python', 10)
-cool_mentor.rate_hw(best_student, 'Python', 10)
-cool_mentor.rate_hw(best_student, 'Python', 10)
-
-best_student.rate_lec(cool_mentor1,'Python', 9)
-
-print(best_student.grades)
-print(cool_mentor1.grades)
-
     
+    def __str__(self):
+        res = f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции:{average_rating(self)}'    
+        return res
+ 
+some_student = Student('Ruoy', 'Eman', 'your_gender')
+some_student.courses_in_progress += ['Python']
+some_student.courses_in_progress += ['Git']
+some_student.finished_courses += ['Введение в программирование']
+ 
+some_reviewer = Reviewer('Some', 'Buddy', 'Reviewer')
+some_reviewer.courses_attached += ['Python']
+ 
+some_lecturer = Lecturer('Some1', 'Buddy1', 'Lecturer')
+some_lecturer.courses_attached += ['Python']
 
+some_reviewer.rate_hw(some_student, 'Python', 10)
+some_reviewer.rate_hw(some_student, 'Python', 10)
+some_reviewer.rate_hw(some_student, 'Python', 10)
+
+some_student.rate_lec(some_lecturer,'Python', 9)
+
+print(some_student.grades)
+print(some_lecturer.grades)
+print(some_reviewer)
+print(some_lecturer)
+print(some_student)
