@@ -1,3 +1,17 @@
+#def average_rating_course(Student1):
+    #for name in Student1.name:
+        
+
+
+
+
+
+
+
+
+
+
+
 def average_rating(some_lecturer1):
     rating = []
     aver = some_lecturer1.grades
@@ -69,25 +83,83 @@ class Lecturer(Mentor):
         res = f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции:{average_rating(self)}'    
         return res
  
+ 
+ 
 some_student = Student('Ruoy', 'Eman', 'your_gender')
 some_student.courses_in_progress += ['Python']
 some_student.courses_in_progress += ['Git']
 some_student.finished_courses += ['Введение в программирование']
+
+
+some_student_1 = Student('Ruoy1', 'Eman1', 'your_gender')
+some_student_1.courses_in_progress += ['Git']
+some_student_1.finished_courses += ['Python']
+
+
  
 some_reviewer = Reviewer('Some', 'Buddy', 'Reviewer')
 some_reviewer.courses_attached += ['Python']
  
-some_lecturer = Lecturer('Some1', 'Buddy1', 'Lecturer')
+some_reviewer_1 = Reviewer('Some1', 'Buddy1', 'Reviewer')
+some_reviewer_1.courses_attached += ['Git']
+ 
+
+ 
+some_lecturer = Lecturer('Buddy', 'Some', 'Lecturer')
 some_lecturer.courses_attached += ['Python']
 
+some_lecturer_1 = Lecturer('Buddy1', 'Some1', 'Lecturer')
+some_lecturer_1.courses_attached += ['Git']
+
+
+
 some_reviewer.rate_hw(some_student, 'Python', 10)
-some_reviewer.rate_hw(some_student, 'Python', 10)
-some_reviewer.rate_hw(some_student, 'Python', 10)
+some_reviewer.rate_hw(some_student, 'Python', 8)
+some_reviewer.rate_hw(some_student, 'Python', 6)
+
+some_reviewer_1.rate_hw(some_student, 'Git', 9)
+some_reviewer_1.rate_hw(some_student, 'Git', 6)
+some_reviewer_1.rate_hw(some_student, 'Git', 7)
+
+some_reviewer.rate_hw(some_student_1, 'Python', 10)
+some_reviewer.rate_hw(some_student_1, 'Python', 8)
+some_reviewer.rate_hw(some_student_1, 'Python', 6)
+
+some_reviewer_1.rate_hw(some_student_1, 'Git', 9)
+some_reviewer_1.rate_hw(some_student_1, 'Git', 6)
+some_reviewer_1.rate_hw(some_student_1, 'Git', 7)
+
+
+
 
 some_student.rate_lec(some_lecturer,'Python', 9)
+some_student.rate_lec(some_lecturer,'Python', 8)
+some_student.rate_lec(some_lecturer,'Python', 8)
+
+some_student_1.rate_lec(some_lecturer_1,'Git', 9)
+some_student_1.rate_lec(some_lecturer_1,'Git', 7)
+some_student_1.rate_lec(some_lecturer_1,'Git', 6)
+
+
+
 
 print(some_student.grades)
+print('-------------------------------')
+print(some_student_1.grades)
+print('-------------------------------')
 print(some_lecturer.grades)
+print('-------------------------------')
+print(some_lecturer_1.grades)
+print('-------------------------------')
 print(some_reviewer)
+print('-------------------------------')
+print(some_reviewer_1)
+print('-------------------------------')
 print(some_lecturer)
+print('-------------------------------')
+print(some_lecturer_1)
+print('-------------------------------')
 print(some_student)
+print('-------------------------------')
+print(some_student_1)
+print('-------------------------------')
