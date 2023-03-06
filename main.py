@@ -1,15 +1,15 @@
 #def average_rating_course(Student1):
     #for name in Student1.name:
         
-
-
-
-
-
-
-
-
-
+def сomparison (people1, people2): 
+    if (isinstance(people1, Lecturer) and isinstance(people2, Lecturer)) or (isinstance(people1, Student) and isinstance(people2, Student)):
+       result_сomparison = average_rating(people1) > average_rating(people2)
+       if result_сomparison == True:
+          return (f'У  {people1.name} {people1.surname} средняя оценка выше чем у {people2.name} {people2.surname}')
+       else:
+          return (f'У  {people2.name} {people2.surname} средняя оценка выше чем у {people1.name} {people1.surname}')   
+    else:
+      return ('Введите только студентов или только преподавателей')
 
 
 def average_rating(some_lecturer1):
