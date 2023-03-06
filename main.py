@@ -1,5 +1,23 @@
-#def average_rating_course(Student1):
-    #for name in Student1.name:
+def avg_grade_in_course(students, course):
+    all_grades_in_course_final = 0
+    qun = 0
+    for el in students:
+        all_grades_in_course = 0
+        grad = el.grades
+        keys = grad.keys()
+        for key in keys:
+        
+           if key == course:
+             val = grad.get(key)
+             for number in val:
+                 qun += 1
+                 all_grades_in_course += number
+        all_grades_in_course_final = all_grades_in_course + all_grades_in_course_final
+             
+              #print(all_grades_in_course)
+              
+    all_grades_in_course_final1 = all_grades_in_course_final / qun           
+    print (all_grades_in_course_final1)
         
 def сomparison (people1, people2): 
     if (isinstance(people1, Lecturer) and isinstance(people2, Lecturer)) or (isinstance(people1, Student) and isinstance(people2, Student)):
@@ -83,23 +101,21 @@ class Lecturer(Mentor):
         res = f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции:{average_rating(self)}'    
         return res
  
-all_students = {}
+all_students = []
 
-all_lecturer = {}      
+all_lecturer = []      
  
 some_student = Student('Ruoy', 'Eman', 'your_gender')
 some_student.courses_in_progress += ['Python']
 some_student.courses_in_progress += ['Git']
 some_student.finished_courses += ['Введение в программирование']
-all_students1 = {some_student.surname:some_student.courses_in_progress}
-all_students.update(all_students1)
+all_students.append(some_student)
 
 
 some_student_1 = Student('Ruoy1', 'Eman1', 'your_gender')
 some_student_1.courses_in_progress += ['Git']
 some_student_1.finished_courses += ['Python']
-all_students1 = {some_student_1.surname:some_student_1.courses_in_progress}
-all_students.update(all_students1)
+all_students.append(some_student_1)
  
 some_reviewer = Reviewer('Some', 'Buddy', 'Reviewer')
 some_reviewer.courses_attached += ['Python']
@@ -111,13 +127,11 @@ some_reviewer_1.courses_attached += ['Git']
  
 some_lecturer = Lecturer('Buddy', 'Some', 'Lecturer')
 some_lecturer.courses_attached += ['Python']
-all_lecturer1 = {some_lecturer.surname:some_lecturer.courses_attached}
-all_lecturer.update(all_lecturer1)
+all_lecturer.append(some_lecturer)
 
 some_lecturer_1 = Lecturer('Buddy1', 'Some1', 'Lecturer')
 some_lecturer_1.courses_attached += ['Git']
-all_lecturer1 = {some_lecturer_1.surname:some_lecturer_1.courses_attached}
-all_lecturer.update(all_lecturer1)
+all_students.append(some_lecturer_1)
 
 
 
