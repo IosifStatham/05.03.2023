@@ -13,11 +13,9 @@ def avg_grade_in_course(students, course):
                  qun += 1
                  all_grades_in_course += number
         all_grades_in_course_final = all_grades_in_course + all_grades_in_course_final
-             
-              #print(all_grades_in_course)
-              
+    
     all_grades_in_course_final1 = all_grades_in_course_final / qun           
-    print (all_grades_in_course_final1)
+    return f'Cредняя оценка по курсам {course}: {all_grades_in_course_final1}'
         
 def сomparison (people1, people2): 
     if (isinstance(people1, Lecturer) and isinstance(people2, Lecturer)) or (isinstance(people1, Student) and isinstance(people2, Student)):
@@ -131,7 +129,7 @@ all_lecturer.append(some_lecturer)
 
 some_lecturer_1 = Lecturer('Buddy1', 'Some1', 'Lecturer')
 some_lecturer_1.courses_attached += ['Git']
-all_students.append(some_lecturer_1)
+all_lecturer.append(some_lecturer_1)
 
 
 
@@ -143,13 +141,13 @@ some_reviewer_1.rate_hw(some_student, 'Git', 9)
 some_reviewer_1.rate_hw(some_student, 'Git', 6)
 some_reviewer_1.rate_hw(some_student, 'Git', 7)
 
-some_reviewer.rate_hw(some_student_1, 'Python', 10)
+some_reviewer.rate_hw(some_student_1, 'Python', 9)
 some_reviewer.rate_hw(some_student_1, 'Python', 8)
-some_reviewer.rate_hw(some_student_1, 'Python', 6)
+some_reviewer.rate_hw(some_student_1, 'Python', 7)
 
 some_reviewer_1.rate_hw(some_student_1, 'Git', 9)
+some_reviewer_1.rate_hw(some_student_1, 'Git', 8)
 some_reviewer_1.rate_hw(some_student_1, 'Git', 6)
-some_reviewer_1.rate_hw(some_student_1, 'Git', 7)
 
 
 
@@ -187,4 +185,8 @@ print(some_student_1)
 print('-------------------------------')
 print(сomparison(some_student, some_student_1))
 print('-------------------------------')
-print(all_students)
+print(сomparison(some_lecturer, some_lecturer_1))
+print('-------------------------------')
+print(avg_grade_in_course(all_students, "Git"))
+print('-------------------------------')
+print(avg_grade_in_course(all_lecturer, "Git"))
